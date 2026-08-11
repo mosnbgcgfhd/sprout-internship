@@ -1,22 +1,8 @@
-# Dependencies
 node_modules/
-
-# Next.js
 .next/
 out/
-
-# Environment files
 .env
 .env.local
 .env*.local
-
-# Production
 build/
 dist/
-
-# Debug
-npm-debug.log*
-
-# IDE
-.vscode/
-.idea/
