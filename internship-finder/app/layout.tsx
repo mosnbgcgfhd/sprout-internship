@@ -1,0 +1,44 @@
+import type { Metadata } from "next";
+import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Sprout — find and track internships",
+  description:
+    "Search real internship listings and track every application on one board.",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}>
+      <body className="min-h-screen bg-paper bg-board bg-[length:16px_16px]">
+        <Navbar />
+        <main className="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6">
+          {children}
+        </main>
+      </body>
+    </html>
+  );
+}

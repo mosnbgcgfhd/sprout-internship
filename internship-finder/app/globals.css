@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-body;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.moss.DEFAULT");
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* The signature element: an index-card look for listings and kanban cards */
+  .card-pin {
+    @apply relative bg-white border border-ink/10 shadow-card rounded-sm;
+  }
+  .card-pin::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: theme("colors.clay");
+    box-shadow: theme("boxShadow.pin");
+  }
+
+  .stamp {
+    @apply inline-flex items-center gap-1 rounded-sm border px-2 py-0.5 text-xs font-mono uppercase tracking-wide;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
